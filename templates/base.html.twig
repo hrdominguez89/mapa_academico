@@ -1,19 +1,67 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<html lang="es">
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+	<head>
+
+		<meta charset="utf-8"/>
+
+		<title>
+			{% block title %}
+				Mapa Académico
+			{% endblock %}
+		</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta content="Mapa Académico" name="description"/>
+		<meta content="Universidad de Buenos Aires" name="author"/>
+
+		{% block stylesheets %}
+			<!-- Favicon -->
+			<link
+			rel="shortcut icon" href="{{ asset('assets/images/logo_uba_negro_cuadrado.png') }}">
+			<!-- Bootstrap css -->
+			<link
+			href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+
+			<!-- datatables css -->
+			<link
+			rel="stylesheet" href="{{ asset('assets/css/datatables.min.css') }}" type="text/css"/>
+
+			<!-- Custom Css-->
+			{% if files_css is defined %}
+
+				{% for file_css in files_css %}
+					<link href="{{ asset('assets/css/'~ file_css) }}" rel="stylesheet" type="text/css"/>
+				{% endfor %}
+
+			{% endif %}
+
+		{% endblock %}
+	</head>
+
+	<body>
+		{% block body %}{% endblock %}
+
+		{% block javascripts %}
+
+			<!-- JAVASCRIPT -->
+			<script src="{{ asset('assets/js/bootstrap-bundle.min.js') }}"></script>
+			<script src="{{ asset('assets/js/pdfmake.min.js') }}"></script>
+			<script src="{{ asset('assets/js/vfs_fonts.min.js') }}"></script>
+			<script src="{{ asset('assets/js/datatables.min.js') }}"></script>
+			{# custom js #}
+			{% if files_js is defined %}
+
+				{% for file_js in files_js %}
+					<script src="{{ asset('assets/js/'~ file_js) }}"></script>
+				{% endfor %}
+
+			{% endif %}
+
+			{# <script src="{{ asset('assets/js/.js') }}"></script> #}
+
+		{% endblock %}
+
+	</body>
+
 </html>
