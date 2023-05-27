@@ -1,5 +1,8 @@
 $(document).ready(function () {
     $('#example').DataTable({
+        language: {
+            url: './assets/js/base/es-AR.json',
+        },
         initComplete: function () {
             this.api()
                 .columns()
