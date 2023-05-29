@@ -7,13 +7,12 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * OfertaAcademica
  *
- * @ORM\Table(name="oferta_academica")
+ * @ORM\Table(name="oferta_academica", indexes={@ORM\Index(name="actividad_id", columns={"actividad_id", "area_id", "campo_id", "carrera_id", "unidad_id"}), @ORM\Index(name="area_id", columns={"area_id"}), @ORM\Index(name="oferta_academica_ibfk_5", columns={"unidad_id"}), @ORM\Index(name="area_id_2", columns={"area_id"}), @ORM\Index(name="oferta_academica_ibfk_3", columns={"campo_id"}), @ORM\Index(name="area_id_3", columns={"area_id"}), @ORM\Index(name="oferta_academica_ibfk_4", columns={"carrera_id"}), @ORM\Index(name="IDX_172E40806014FACA", columns={"actividad_id"})})
  * @ORM\Entity
  */
 class OfertaAcademica
 {
     /**
-     * @var int
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
@@ -22,60 +21,67 @@ class OfertaAcademica
     private $id;
 
     /**
-     * @var string
      *
      * @ORM\Column(name="caracter", type="string", length=255, nullable=false)
      */
     private $caracter;
 
     /**
-     * @var string
      *
      * @ORM\Column(name="carga_horaria", type="string", length=255, nullable=false)
      */
     private $cargaHoraria;
 
     /**
-     * @var string
      *
      * @ORM\Column(name="contenidos_minimos", type="text", length=65535, nullable=false)
      */
     private $contenidosMinimos;
 
     /**
-     * @var int
      *
-     * @ORM\Column(name="actividad_id", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Campos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="campo_id", referencedColumnName="id")
+     * })
      */
-    private $actividadId;
+    private $campo;
 
     /**
-     * @var int
      *
-     * @ORM\Column(name="area_id", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Areas")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="area_id", referencedColumnName="id")
+     * })
      */
-    private $areaId;
+    private $area;
 
     /**
-     * @var int
      *
-     * @ORM\Column(name="campo_id", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Carreras")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="carrera_id", referencedColumnName="id")
+     * })
      */
-    private $campoId;
+    private $carrera;
 
     /**
-     * @var int
      *
-     * @ORM\Column(name="carrera_id", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Actividades")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="actividad_id", referencedColumnName="id")
+     * })
      */
-    private $carreraId;
+    private $actividad;
 
     /**
-     * @var int
      *
-     * @ORM\Column(name="unidad_id", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Unidades")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="unidad_id", referencedColumnName="id")
+     * })
      */
-    private $unidadId;
+    private $unidad;
 
     public function getId(): ?int
     {
@@ -118,65 +124,64 @@ class OfertaAcademica
         return $this;
     }
 
-    public function getActividadId(): ?int
+    public function getCampo(): ?Campos
     {
-        return $this->actividadId;
+        return $this->campo;
     }
 
-    public function setActividadId(int $actividadId): self
+    public function setCampo(?Campos $campo): self
     {
-        $this->actividadId = $actividadId;
+        $this->campo = $campo;
 
         return $this;
     }
 
-    public function getAreaId(): ?int
+    public function getArea(): ?Areas
     {
-        return $this->areaId;
+        return $this->area;
     }
 
-    public function setAreaId(int $areaId): self
+    public function setArea(?Areas $area): self
     {
-        $this->areaId = $areaId;
+        $this->area = $area;
 
         return $this;
     }
 
-    public function getCampoId(): ?int
+    public function getCarrera(): ?Carreras
     {
-        return $this->campoId;
+        return $this->carrera;
     }
 
-    public function setCampoId(int $campoId): self
+    public function setCarrera(?Carreras $carrera): self
     {
-        $this->campoId = $campoId;
+        $this->carrera = $carrera;
 
         return $this;
     }
 
-    public function getCarreraId(): ?int
+    public function getActividad(): ?Actividades
     {
-        return $this->carreraId;
+        return $this->actividad;
     }
 
-    public function setCarreraId(int $carreraId): self
+    public function setActividad(?Actividades $actividad): self
     {
-        $this->carreraId = $carreraId;
+        $this->actividad = $actividad;
 
         return $this;
     }
 
-    public function getUnidadId(): ?int
+    public function getUnidad(): ?Unidades
     {
-        return $this->unidadId;
+        return $this->unidad;
     }
 
-    public function setUnidadId(int $unidadId): self
+    public function setUnidad(?Unidades $unidad): self
     {
-        $this->unidadId = $unidadId;
+        $this->unidad = $unidad;
 
         return $this;
     }
-
 
 }

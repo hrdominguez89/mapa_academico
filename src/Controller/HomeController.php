@@ -14,7 +14,6 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
-
         $data['title'] = 'Mapa Académico';
         $data['files_js'] = [
             'base/datatableBase.js?v=' . rand(),
