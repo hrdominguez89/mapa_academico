@@ -56,6 +56,22 @@ body {
   margin: 1.875rem 3rem;
 }
 
+.btn__download {
+  max-width: 235px;
+  background-color: #7dd875;
+  color: #ffffff;
+  border-radius: 4px;
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.05em;
+}
+.btn__download-pdf {
+  background-color: #f69853;
+}
+
 @media screen and (max-width: 820px) {
   .header__img {
     max-width: 10.625rem;
@@ -65,6 +81,7 @@ body {
 
   .section__hero {
     background-size: auto 14.25rem;
+    min-height: 14.8rem;
   }
   .section__info {
     margin-top: 5rem;
@@ -100,6 +117,7 @@ body {
   }
   .section__hero {
     background-size: auto 7.125rem;
+    min-height: 7.125rem;
   }
   .section__info {
     margin-top: 1.6875rem;
