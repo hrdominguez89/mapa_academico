@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapa Académico</title>
+    <link href="../public/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../public/assets/css/style.css" rel="stylesheet" />
+    <link href="../public/assets/css/datatables.min.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <header class="container-fluid">
+      <img
+        class="header__img"
+        src="../public/assets/images/logo_uba_azul.png"
+        alt="ogo unuversidad de buenos aires"
+      />
+    </header>
+    <main>
+      <section class="section__hero container-fluid">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- Titulo -->
+            <div class="col col-lg-4">
+              <h1 class="section__hero__h1 ms-md-1">mapa académico</h1>
+            </div>
+            <!-- Info Carreras -->
+            <div class="section__info col">
+              <div class="row align-items-center">
+                <div class="col-6 col-md-8">
+                  <img
+                    class="hero__img__carrera float-end"
+                    src="../public/assets/images/icon-carrera.svg"
+                    alt="Icono Carreras"
+                  />
+                </div>
+                <div class="col-6 col-md-4">
+                  <p class="p__number">100+</p>
+                  <p class="p__text">Carreras</p>
+                </div>
+              </div>
+              <!-- Info Facultades -->
+              <div class="row align-items-center mt-2 mt-md-4">
+                <div class="col-6 col-md-8">
+                  <img
+                    class="hero__img__facultades float-end"
+                    src="../public/assets/images/Icon-facultades.svg"
+                    alt="Icono Carreras"
+                  />
+                </div>
+                <div class="col-6 col-md-4">
+                  <p class="p__number">13</p>
+                  <p class="p__text">Facultades</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section__datatable">
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <button class="btn__download btn">Descargar búsqueda EXCEL</button>
+            </div>
+            <div class="row">
+              <button class="btn__download btn__download-pdf btn  mt-2">Descargar búsqueda PDF</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <table
+              id="example"
+              class="display table table-hover"
+              style="width: 100%"
+            >
+              <thead>
+                <tr>
+                  <th class="">Actividad Curricular</th>
+                  <th>Carácter</th>
+                  <th>Contenidos mínimos de la actividad curricular</th>
+                  <th>Área</th>
+                  <th>Campo</th>
+                  <th>Carrera</th>
+                  <th>Unidad Académica</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Química Aplicada</td>
+                  <td>Obligatoria</td>
+                  <td>
+                    Modelos químicos de sistemas en equilibrio: concepto
+                    cinético y termodinámico. Equilibrio ácido-base. El agua y
+                    el comportamiento ácido-base de sus soluciones. Soluciones
+                    reguladoras de pH. Equilibrio redox. Electroquímica.
+                    Procesos redox en medios naturales. Compuestos de
+                    coordinación en sistemas naturales. Quelatos. Acuocomplejos.
+                    Equilibrio de iones complejos. Solubilidad. Equilibrios de
+                    precipitación. Procesos de precipitación en sistemas
+                    naturales. Las interacciones químicas en la naturaleza.
+                    Equilibrios múltiples. Operaciones básicas del método
+                    analítico. Análisis cuantitativos de elementos y compuestos
+                    de interés agronómico. Gravimetría, volumetría. Métodos
+                    instrumentales: conductimetría, potenciometría,
+                    espectrocopía molecular y atómica.
+                  </td>
+                  <td>Química</td>
+                  <td>Matemática, Ciencias naturales y del ambiente</td>
+                  <td>Agronomía</td>
+                  <td>Facultad de Agronomía</td>
+                </tr>
+                <tr>
+                  <td>Química Aplicada</td>
+                  <td>Obligatoria</td>
+                  <td>
+                    Modelos químicos de sistemas en equilibrio: concepto
+                    cinético y termodinámico. Equilibrio ácido-base. El agua y
+                    el comportamiento ácido-base de sus soluciones. Soluciones
+                    reguladoras de pH. Equilibrio redox. Electroquímica.
+                    Procesos redox en medios naturales. Compuestos de
+                    coordinación en sistemas naturales. Quelatos. Acuocomplejos.
+                    Equilibrio de iones complejos. Solubilidad. Equilibrios de
+                    precipitación. Procesos de precipitación en sistemas
+                    naturales. Las interacciones químicas en la naturaleza.
+                    Equilibrios múltiples. Operaciones básicas del método
+                    analítico. Análisis cuantitativos de elementos y compuestos
+                    de interés agronómico. Gravimetría, volumetría. Métodos
+                    instrumentales: conductimetría, potenciometría,
+                    espectrocopía molecular y atómica.
+                  </td>
+                  <td>Química</td>
+                  <td>Matemática, Ciencias naturales y del ambiente</td>
+                  <td>Agronomía</td>
+                  <td>Facultad de Agronomía</td>
+                </tr>
+                <tfoot>
+                  <tr>
+                  <th class="">Actividad Curricular</th>
+                  <th>Carácter</th>
+                  <th>Contenidos mínimos de la actividad curricular</th>
+                  <th>Área</th>
+                  <th>Campo</th>
+                  <th>Carrera</th>
+                  <th>Unidad Académica</th>
+                </tr>
+                </tfoot>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/v/bs5/jq-3.6.0/jszip-2.5.0/dt-1.13.4/af-2.5.3/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/cr-1.6.2/date-1.4.1/fc-4.2.2/fh-3.3.2/r-2.4.1/rg-1.3.1/sb-1.4.2/sp-2.1.2/sl-1.6.2/sr-1.2.2/datatables.min.js"></script>
+    <!-- <script>
+      $(document).ready(function () {
+        $("#example").DataTable({
+          initComplete: function () {
+            this.api()
+              .columns()
+              .every(function () {
+                var column = this;
+                var select = $('<select><option value=""></option></select>')
+                  .appendTo($(column.footer()).empty())
+                  .on("change", function () {
+                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                    column
+                      .search(val ? "^" + val + "$" : "", true, false)
+                      .draw();
+                  });
+
+                column
+                  .data()
+                  .unique()
+                  .sort()
+                  .each(function (d, j) {
+                    select.append(
+                      '<option value="' + d + '">' + d + "</option>"
+                    );
+                  });
+              });
+          },
+        });
+      });
+    </script> -->
+  </body>
+</html>
