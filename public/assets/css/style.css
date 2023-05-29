@@ -52,6 +52,10 @@ body {
   margin: 0;
 }
 
+.section__datatable {
+  margin: 1.875rem 3rem;
+}
+
 @media screen and (max-width: 820px) {
   .header__img {
     max-width: 10.625rem;
@@ -123,5 +127,8 @@ body {
   .hero__img__facultades {
     max-width: 0.8125rem;
     max-height: 0.8125rem;
+  }
+  .section__datatable {
+    margin: 1rem;
   }
 }
