@@ -1,0 +1,1 @@
+INSERT INTO `user` (`id`, `email`, `roles`, `password`, `name`) VALUES ('1', 'mapa_academico@uba.ar', '["ROLE_ADMIN"]', '$2y$10$JaL5BbMgwC.GLqRah.uoU.6zKtNLLeinXnBDJd74ltSl7ZpXRcifW', 'Admin')
