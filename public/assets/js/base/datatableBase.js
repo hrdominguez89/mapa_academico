@@ -3,6 +3,10 @@ $(document).ready(function () {
         language: {
             url: './assets/js/base/es-AR.json',
         },
+        dom:'Bfrltip',
+        buttons: [
+            'pdf'
+        ],
         initComplete: function () {
             this.api()
                 .columns()
@@ -12,10 +16,10 @@ $(document).ready(function () {
                         .appendTo($(column.footer()).empty())
                         .on('change', function () {
                             var val = $.fn.dataTable.util.escapeRegex($(this).val());
- 
+
                             column.search(val ? '^' + val + '$' : '', true, false).draw();
                         });
- 
+
                     column
                         .data()
                         .unique()
