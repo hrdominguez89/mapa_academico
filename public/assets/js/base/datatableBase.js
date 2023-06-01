@@ -1,7 +1,38 @@
 $(document).ready(function () {
+  var table = $("#example").DataTable({
+    orderCellsTop: true,
+    fixedHeader: true,
+    language: {
+      url: "./assets/js/base/es-AR.json",
+    },
+  });
+
+  //Creamos una fila en el head de la tabla y lo clonamos para cada columna
+  $("#example thead tr").clone(true).appendTo("#example thead");
+
+  $("#example thead tr:eq(1) th").each(function (i) {
+    var title = $(this).text(); //es el nombre de la columna
+    $(this).html(
+      '<input type="text" style="width:100%" placeholder="Buscar" />'
+    );
+
+    $("input", this).on("keyup change", function () {
+      if (table.column(i).search() !== this.value) {
+        table.column(i).search(this.value).draw();
+      }
+    });
+  });
+});
+
+/* $(document).ready(function () {
+   
   $("#example tfoot th").each(function () {
     var title = $(this).text();
-    $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+    $(this).html(
+      '<input type="text" style="width:100%" placeholder="Buscar por ' +
+        title +
+        '" />'
+    );
   });
 
   $("#example").DataTable({
@@ -11,16 +42,16 @@ $(document).ready(function () {
     dom: "Bfrltip",
     buttons: [
       {
-        extend: "pdfHtml5",
-        text: "Exportar a PDF",
-        className: "btn btn-primary",
-        orientation: "landscape",
-        pageSize: "A3",
+        extend: "excel",
+        text: "Descargar búsqueda EXCEL",
+        className: "btn__download btn me-2",
       },
       {
-        extend: "excel",
-        text: "Exportar a Excel",
-        className: "btn btn-success",
+        extend: "pdfHtml5",
+        text: "Descargar búsqueda PDF",
+        className: "btn__download btn__download-pdf btn mt-2 mt-md-0",
+        orientation: "landscape",
+        pageSize: "A3",
       },
     ],
 
@@ -38,42 +69,6 @@ $(document).ready(function () {
           });
         });
     },
-    /*  initComplete: function () {
-      // Apply the search
-      this.api()
-        .columns()
-        .every(function () {
-          var that = this;
-          $(".buscador").on("keyup change clear", function () {
-            console.log(this.value);
-            console.log(that.search);
-            if (that.search() !== this.value) {
-              that.search(this.value).draw();
-            }
-          });
-        });
-    }, */
-    /* initComplete: function () {
-      this.api()
-        .columns()
-        .every(function () {
-          var column = this;
-          var select = $('<select><option value=""></option></select>')
-            .appendTo($(column.footer()).empty())
-            .on("change", function () {
-              var val = $.fn.dataTable.util.escapeRegex($(this).val());
-
-              column.search(val ? "^" + val + "$" : "", true, false).draw();
-            });
-
-          column
-            .data()
-            .unique()
-            .sort()
-            .each(function (d, j) {
-              select.append('<option value="' + d + '">' + d + "</option>");
-            });
-        });
-    }, */
   });
 });
+ */

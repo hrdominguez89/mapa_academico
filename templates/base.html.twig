@@ -24,9 +24,11 @@
 			href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
 
 			<!-- datatables css -->
-			<link
-			rel="stylesheet" href="{{ asset('assets/css/datatables.min.css') }}" type="text/css"/>
-
+			<!--<link
+			rel="stylesheet" href="{{ asset('assets/css/datatables.min.css') }}" type="text/css"/>-->
+			<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.css">
+			 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+   		    <link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css">
 			<!-- Custom Css-->
 			{% if files_css is defined %}
 
@@ -48,7 +50,11 @@
 			<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 			<script src="{{ asset('assets/js/pdfmake.min.js') }}"></script>
 			<script src="{{ asset('assets/js/vfs_fonts.min.js') }}"></script>
-			<script src="{{ asset('assets/js/datatables.min.js') }}"></script>
+			<script src="{{ asset('assets/js/datatables.min.js') }}"></script>			
+			<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.js"></script>
+			<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+			<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+			<script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script> 
 			{# custom js #}
 			{% if files_js is defined %}
 
