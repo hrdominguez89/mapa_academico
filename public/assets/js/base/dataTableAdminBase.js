@@ -12,11 +12,12 @@ $(document).ready(function () {
         .replace(/ñ/gi, 'n') :
       data;
   };
-  
+
   $("#example").DataTable({
     language: {
       url: SITE_URL + "assets/js/base/es-AR.json",
     },
+    stateSave: true,
     dom: "Bfrltip",
     buttons: [
       {
