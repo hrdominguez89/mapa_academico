@@ -27,6 +27,15 @@
 			<link
 			rel="stylesheet" href="{{ asset('assets/css/datatables.min.css') }}" type="text/css"/>
 
+
+			<!-- icons bootstrap css -->
+
+			<link
+			href="{{ asset('assets/css/bootstrap-icons/font/bootstrap-icons.css') }}" rel="stylesheet">
+			<!-- custom style css -->
+			<link
+			rel="stylesheet" href="{{ asset('assets/css/uba.css') }}" type="text/css"/>
+
 			<!-- Custom Css-->
 			{% if files_css is defined %}
 
@@ -43,6 +52,10 @@
 		{% block body %}{% endblock %}
 
 		{% block javascripts %}
+
+			<script>
+				var SITE_URL = "{{ url('app_home') }}";
+			</script>
 
 			<!-- JAVASCRIPT -->
 			<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>

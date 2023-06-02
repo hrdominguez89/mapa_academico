@@ -6,7 +6,7 @@ $(document).ready(function () {
 
   $("#example").DataTable({
     language: {
-      url: "./assets/js/base/es-AR.json",
+      url: SITE_URL + "assets/js/base/es-AR.json",
     },
     dom: "Bfrltip",
     buttons: [

@@ -1,0 +1,54 @@
+{% extends 'secure/secure.index.html.twig' %}
+
+{% block content %}
+	<div class="row">
+		<div class="col">
+			<h1>Mapa académico</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<table id="example" class="display table table-hover" style="width: 100%">
+				<thead>
+					<tr>
+						<th style="width:10%;">Actividad Curricular</th>
+						<th style="width:10%;">Carácter</th>
+						<th style="width:30%;">Contenidos mínimos de la actividad curricular</th>
+						<th style="width:10%;">Área</th>
+						<th style="width:15%;">Campo</th>
+						<th style="width:15%;">Carrera</th>
+						<th style="width:10%;">Unidad Académica</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for oferta_academica in ofertas_academicas %}
+						<tr>
+							<td>{{oferta_academica.actividad.actividadCurricular}}</td>
+							<td>{{oferta_academica.caracter}}</td>
+							<td>{{oferta_academica.contenidosMinimos}}</td>
+							<td>{{oferta_academica.area.area}}</td>
+							<td>{{oferta_academica.campo.campo}}</td>
+							<td>{{oferta_academica.carrera.carrera}}</td>
+							<td>{{oferta_academica.unidad.unidadAcademica}}</td>
+
+						</tr>
+					{% endfor %}
+				</tbody>
+				<tfoot>
+					<tr>
+						<th>Actividad Curricular</th>
+						<th>Carácter</th>
+						<th>Contenidos mínimos de la actividad curricular</th>
+						<th>Área</th>
+						<th>Campo</th>
+						<th>Carrera</th>
+						<th>Unidad Académica</th>
+					</tr>
+				</tfoot>
+			</table>
+
+
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ title }}
+{% endblock %}
+
+
+{% block body %}
+	{# Carga modal en caso de haber mensajes para mostrar #}
+	{% for message in app.flashes('message') %}
+		{% include 'modal.html.twig' %}
+	{% endfor %}
+
+	<div
+		class="container-fluid">
+
+		<!-- ========== Top Bar Start ========== -->
+		{% include 'secure/navbar.html.twig' %}
+		<!-- Top Bar End -->
+	</div>
+	<div class="container">
+		{% block content %}
+			{% if breadcrumbs is defined %}
+				{% include 'breadcrumbs.html.twig' %}
+			{% endif %}
+		{% endblock %}
+
+	</div>
+
+
+{% endblock %}

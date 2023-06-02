@@ -1,0 +1,11 @@
+.btn-uba,
+.btn-uba:visited {
+    background-color: #1d2654;
+    color: #FFFFFF;
+}
+
+.btn-uba:hover,
+.btn-uba:active {
+    background-color: #bdd7ed;
+    color: #1d2654;
+}
