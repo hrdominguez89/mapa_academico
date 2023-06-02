@@ -6,23 +6,33 @@
 			<h1>Mapa académico</h1>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row mt-5">
+		<div class="col text-end">
+			<a href="{{ path('new_contenidos_minimos') }}" class="btn btn-uba">
+				<i class="bi bi-plus"></i>
+				Agregar contenido</a>
+		</div>
+	</div>
+	<div class="row mt-5">
 		<div class="col">
 			<table id="example" class="display table table-hover" style="width: 100%">
 				<thead>
 					<tr>
-						<th style="width:10%;">Actividad Curricular</th>
-						<th style="width:10%;">Carácter</th>
-						<th style="width:30%;">Contenidos mínimos de la actividad curricular</th>
-						<th style="width:10%;">Área</th>
-						<th style="width:15%;">Campo</th>
-						<th style="width:15%;">Carrera</th>
-						<th style="width:10%;">Unidad Académica</th>
+						<th>Id</th>
+						<th>Actividad Curricular</th>
+						<th>Carácter</th>
+						<th>Contenidos mínimos de la actividad curricular</th>
+						<th>Área</th>
+						<th>Campo</th>
+						<th>Carrera</th>
+						<th>Unidad Académica</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
 					{% for oferta_academica in ofertas_academicas %}
 						<tr>
+							<td>{{oferta_academica.id}}</td>
 							<td>{{oferta_academica.actividad.actividadCurricular}}</td>
 							<td>{{oferta_academica.caracter}}</td>
 							<td>{{oferta_academica.contenidosMinimos}}</td>
@@ -30,7 +40,11 @@
 							<td>{{oferta_academica.campo.campo}}</td>
 							<td>{{oferta_academica.carrera.carrera}}</td>
 							<td>{{oferta_academica.unidad.unidadAcademica}}</td>
-
+							<td class="no-sort">
+								<a href="{{ path('edit_contenidos_minimos', {'id': oferta_academica.id}) }}" class="text-warning" title="Editar">
+									<i class="bi bi-pencil-square"></i>
+								</a>
+							</td>
 						</tr>
 					{% endfor %}
 				</tbody>

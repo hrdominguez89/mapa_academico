@@ -7,9 +7,7 @@
 
 {% block body %}
 	{# Carga modal en caso de haber mensajes para mostrar #}
-	{% for message in app.flashes('message') %}
-		{% include 'modal.html.twig' %}
-	{% endfor %}
+
 
 	<div
 		class="container-fluid">
@@ -19,11 +17,13 @@
 		<!-- Top Bar End -->
 	</div>
 	<div class="container">
-		{% block content %}
-			{% if breadcrumbs is defined %}
-				{% include 'breadcrumbs.html.twig' %}
-			{% endif %}
-		{% endblock %}
+		{% if breadcrumbs is defined %}
+			{% include 'secure/breadcrumbs.html.twig' %}
+		{% endif %}
+		{% for message in app.flashes('message') %}
+			{% include 'secure/alert.html.twig' %}
+		{% endfor %}
+		{% block content %}{% endblock %}
 
 	</div>
 

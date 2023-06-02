@@ -17,11 +17,11 @@ class DashboardController extends AbstractController
      */
     public function index(OfertaAcademicaRepository $ofertaAcademicaRepository): Response
     {
+        $data['title'] = 'Mapa académico';
         $data['ofertas_academicas'] = $ofertaAcademicaRepository->findAll();
         $data['files_js'] = [
-            'base/datatableBase.js?v=' . rand(),
+            'base/dataTableAdminBase.js?v=' . rand(),
         ];
-        $data['title'] = 'Mapa académico';
         $data['files_css'] = [
             'sidebars.css?v=' . rand()
         ];

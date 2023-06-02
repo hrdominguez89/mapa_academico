@@ -1,0 +1,74 @@
+{% extends 'secure/secure.index.html.twig' %}
+
+{% block content %}
+	<div class="row">
+		<div class="col">
+			<h1>{{ title }}</h1>
+		</div>
+	</div>
+	<div class="row mt-5">
+		<div class="col">
+			{{ form_start(form) }}
+			{% if form_errors(form) %}
+				<div class="row">
+					<div class="col-12">
+						<div class="alert alert-danger">
+							{{ form_errors(form) }}
+						</div>
+					</div>
+				</div>
+			{% endif %}
+			<div class="row my-2">
+				<div class="col-12 col-md-8">
+					{{ form_row(form.actividad) }}
+				</div>
+				<div class="col-12 col-md-4">
+					{{ form_row(form.caracter) }}
+				</div>
+			</div>
+			<div class="row my-2">
+				<div class="col-12">
+					{{ form_row(form.contenidosMinimos) }}
+				</div>
+			</div>
+			<div class="row my-2">
+				<div class="col-12 col-md-6 col-lg-3">
+					{{ form_row(form.area) }}
+				</div>
+				<div class="col-12 col-md-6 col-lg-3">
+					{{ form_row(form.campo) }}
+				</div>
+				<div class="col-12 col-md-6 col-lg-3">
+					{{ form_row(form.carrera) }}
+				</div>
+				<div class="col-12 col-md-6 col-lg-3">
+					{{ form_row(form.unidad) }}
+				</div>
+			</div>
+			<div class="row my-2">
+				<div class="col-12 col-md-3">
+					{{ form_row(form.cargaHoraria) }}
+				</div>
+			</div>
+
+
+			<div>
+				<div class="row my-2">
+
+					<div class="col-12 text-end">
+						<a class="btn btn-secondary" href="{{ path('index_dashboard') }}">Regresar</a>
+
+						<button class="btn btn-uba">Guardar</button>
+					</div>
+				</div>
+			</div>
+
+
+			{{ form_end(form) }}
+		</div>
+	</div>
+	<div class="row mt-5">
+		<div class="col"></div>
+	</div>
+
+{% endblock %}

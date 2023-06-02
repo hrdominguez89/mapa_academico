@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * OfertaAcademica
- *
+ * @ORM\Entity(repositoryClass="App\Repository\OfertaAcademicaRepository")
  * @ORM\Table(name="oferta_academica", indexes={@ORM\Index(name="actividad_id", columns={"actividad_id", "area_id", "campo_id", "carrera_id", "unidad_id"}), @ORM\Index(name="area_id", columns={"area_id"}), @ORM\Index(name="oferta_academica_ibfk_5", columns={"unidad_id"}), @ORM\Index(name="area_id_2", columns={"area_id"}), @ORM\Index(name="oferta_academica_ibfk_3", columns={"campo_id"}), @ORM\Index(name="area_id_3", columns={"area_id"}), @ORM\Index(name="oferta_academica_ibfk_4", columns={"carrera_id"}), @ORM\Index(name="IDX_172E40806014FACA", columns={"actividad_id"})})
  * @ORM\Entity
  */
