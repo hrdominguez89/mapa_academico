@@ -57,7 +57,7 @@
 }
 
 .btn__download {
-  max-width: 235px;
+  max-width: 235px !important;
   background-color: #7dd875;
   color: #ffffff;
   border-radius: 4px;
@@ -67,9 +67,29 @@
   font-size: 16px;
   line-height: 19px;
   letter-spacing: -0.05em;
+  border: none;
 }
 .btn__download-pdf {
   background-color: #f69853;
+}
+
+.btn-group,
+.btn-group-vertical {
+  flex-direction: column;
+}
+
+.btn-group > .btn-group:not(:last-child) > .btn,
+.btn-group > .btn:not(:last-child):not(.dropdown-toggle) {
+  border-radius: 5px;
+  width: 235px;
+  margin-bottom: 8px;
+}
+
+.btn-group > .btn-group:not(:first-child) > .btn,
+.btn-group > .btn:nth-child(n + 3),
+.btn-group > :not(.btn-check) + .btn {
+  border-radius: 5px;
+  width: 235px;
 }
 
 @media screen and (max-width: 820px) {
@@ -148,5 +168,13 @@
   }
   .section__datatable {
     margin: 1rem;
+  }
+
+  div.dataTables_wrapper div.dataTables_filter label {
+    float: left;
+    margin-bottom: 10px;
+  }
+  div.dataTables_wrapper div.dataTables_length label {
+    float: left;
   }
 }
