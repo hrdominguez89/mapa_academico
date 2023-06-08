@@ -1,4 +1,19 @@
 $(document).ready(function () {
+
+  $.fn.dataTable.ext.type.search.string = function (data) {
+    return !data ?
+      '' :
+      typeof data === 'string' ?
+        data
+          .replace(/á/gi, 'a')
+          .replace(/é/gi, 'e')
+          .replace(/í/gi, 'i')
+          .replace(/ó/gi, 'o')
+          .replace(/ú/gi, 'u')
+          .replace(/ñ/gi, 'n') :
+        data;
+  };
+
   var table = $("#example").DataTable({
     orderCellsTop: true,
     fixedHeader: true,
