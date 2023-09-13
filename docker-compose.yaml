@@ -5,15 +5,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    image: mapa_academico
     ports:
       - '8081:80'
-    # volumes:
-    #   - .:/var/www/html
-    environment:
-      - APP_ENV=dev
-      - APP_DEBUG=1
-      - APP_SECRET=df56d689878bd6a2a408421655881d5b
-      - DATABASE_URL="mariadb://root:root@127.0.0.1:3306/mapa_academico?serverVersion=mariadb-10.4.22&charset=utf8mb4"
+    depends_on:
+      - database
+    env_file:
+      - ./.env 
     networks:
       - app-network
 
@@ -22,12 +20,12 @@ services:
     environment:
       MARIADB_ROOT_PASSWORD: root
       MARIADB_DATABASE: mapa_academico
-      MARIADB_USER: root
-      MARIADB_PASSWORD: root
     ports:
      - '3306:3306'
     networks:
       - app-network
+    volumes:
+      - ./doc/db/:/docker-entrypoint-initdb.d/:ro
   
   phpmyadmin:
     image: phpmyadmin:5.1.1
@@ -41,6 +39,18 @@ services:
       - app-network
     links:
       - database:database
+
+  app-migrations:
+    image: mapa_academico
+    depends_on:
+      - app 
+    env_file:
+      - ./.env
+    volumes:
+      - ./bin/exec_migrations.sh:/tmp/exec_migrations.sh
+    command: ["sh", "/tmp/exec_migrations.sh"]
+    networks:
+      - app-network
 
 networks:
   app-network:

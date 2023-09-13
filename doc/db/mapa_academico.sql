@@ -6,6 +6,7 @@
 -- Tiempo de generación: 30-05-2023 a las 05:31:08
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 7.4.27
+USE mapa_academico;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -2818,9 +2819,6 @@ CREATE TABLE `doctrine_migration_versions` (
 --
 -- Volcado de datos para la tabla `doctrine_migration_versions`
 --
-
-INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
-('DoctrineMigrations\\Version20230529212750', '2023-05-29 23:28:05', 146);
 
 -- --------------------------------------------------------
 
