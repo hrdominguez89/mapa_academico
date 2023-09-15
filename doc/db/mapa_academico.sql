@@ -2,11 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 30-05-2023 a las 05:31:08
--- Versión del servidor: 10.4.22-MariaDB
+-- Servidor: database
+-- Tiempo de generación: 15-09-2023 a las 05:39:51
+-- Versión del servidor: 10.4.31-MariaDB-1:10.4.31+maria~ubu2004
 -- Versión de PHP: 7.4.27
-USE mapa_academico;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `actividades` (
   `id` int(11) NOT NULL,
   `actividad_curricular` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `actividades`
@@ -2606,7 +2605,7 @@ INSERT INTO `actividades` (`id`, `actividad_curricular`) VALUES
 CREATE TABLE `areas` (
   `id` int(11) NOT NULL,
   `area` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `areas`
@@ -2679,7 +2678,7 @@ INSERT INTO `areas` (`id`, `area`) VALUES
 CREATE TABLE `campos` (
   `id` int(11) NOT NULL,
   `campo` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `campos`
@@ -2709,7 +2708,7 @@ INSERT INTO `campos` (`id`, `campo`) VALUES
 CREATE TABLE `carreras` (
   `id` int(11) NOT NULL,
   `carrera` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `carreras`
@@ -2811,14 +2810,10 @@ INSERT INTO `carreras` (`id`, `carrera`) VALUES
 --
 
 CREATE TABLE `doctrine_migration_versions` (
-  `version` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `version` varchar(191) NOT NULL,
   `executed_at` datetime DEFAULT NULL,
   `execution_time` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `doctrine_migration_versions`
---
 
 -- --------------------------------------------------------
 
@@ -2828,9 +2823,9 @@ CREATE TABLE `doctrine_migration_versions` (
 
 CREATE TABLE `messenger_messages` (
   `id` bigint(20) NOT NULL,
-  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `headers` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue_name` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `body` longtext NOT NULL,
+  `headers` longtext NOT NULL,
+  `queue_name` varchar(190) NOT NULL,
   `created_at` datetime NOT NULL,
   `available_at` datetime NOT NULL,
   `delivered_at` datetime DEFAULT NULL
@@ -2852,7 +2847,7 @@ CREATE TABLE `oferta_academica` (
   `campo_id` int(11) DEFAULT NULL,
   `carrera_id` int(11) DEFAULT NULL,
   `unidad_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `oferta_academica`
@@ -6555,7 +6550,7 @@ INSERT INTO `oferta_academica` (`id`, `caracter`, `carga_horaria`, `contenidos_m
 CREATE TABLE `unidades` (
   `id` int(11) NOT NULL,
   `unidad_academica` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `unidades`
@@ -6585,11 +6580,18 @@ INSERT INTO `unidades` (`id`, `unidad_academica`) VALUES
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `email` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `roles` longtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '(DC2Type:json)',
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `email` varchar(180) NOT NULL,
+  `roles` longtext NOT NULL COMMENT '(DC2Type:json)',
+  `password` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `user`
+--
+
+INSERT INTO `user` (`id`, `email`, `roles`, `password`, `name`) VALUES
+(1, 'mapa_academico@uba.ar', '\"[\'ROLE_ADMIN\']\"', '$2y$10$JaL5BbMgwC.GLqRah.uoU.6zKtNLLeinXnBDJd74ltSl7ZpXRcifW', 'Admin');
 
 --
 -- Índices para tablas volcadas
@@ -6710,7 +6712,7 @@ ALTER TABLE `unidades`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas

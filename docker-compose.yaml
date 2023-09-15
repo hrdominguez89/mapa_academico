@@ -27,30 +27,30 @@ services:
     volumes:
       - ./doc/db/:/docker-entrypoint-initdb.d/:ro
   
-  phpmyadmin:
-    image: phpmyadmin:5.1.1
-    environment:
-      PMA_HOST: database
-      PMA_USER: root
-      PMA_PASSWORD: root
-    ports:
-      - 8080:80
-    networks:
-      - app-network
-    links:
-      - database:database
+  # phpmyadmin:
+  #   image: phpmyadmin:5.1.1
+  #   environment:
+  #     PMA_HOST: database
+  #     PMA_USER: root
+  #     PMA_PASSWORD: root
+  #   ports:
+  #     - 8080:80
+  #   networks:
+  #     - app-network
+  #   links:
+  #     - database:database
 
-  app-migrations:
-    image: mapa_academico
-    depends_on:
-      - app 
-    env_file:
-      - ./.env
-    volumes:
-      - ./bin/exec_migrations.sh:/tmp/exec_migrations.sh
-    command: ["sh", "/tmp/exec_migrations.sh"]
-    networks:
-      - app-network
+  # app-migrations:
+  #   image: mapa_academico
+  #   depends_on:
+  #     - app 
+  #   env_file:
+  #     - ./.env
+  #   volumes:
+  #     - ./bin/exec_migrations.sh:/tmp/exec_migrations.sh
+  #   command: ["sh", "/tmp/exec_migrations.sh"]
+  #   networks:
+  #     - app-network
 
 networks:
   app-network:
