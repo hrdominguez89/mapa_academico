@@ -13,15 +13,15 @@
 		class="container-fluid">
 
 		<!-- ========== Top Bar Start ========== -->
-		{% include 'secure/navbar.html.twig' %}
+		{% include 'Secure/navbar.html.twig' %}
 		<!-- Top Bar End -->
 	</div>
 	<div class="container">
 		{% if breadcrumbs is defined %}
-			{% include 'secure/breadcrumbs.html.twig' %}
+			{% include 'Secure/breadcrumbs.html.twig' %}
 		{% endif %}
 		{% for message in app.flashes('message') %}
-			{% include 'secure/alert.html.twig' %}
+			{% include 'Secure/alert.html.twig' %}
 		{% endfor %}
 		{% block content %}{% endblock %}
 

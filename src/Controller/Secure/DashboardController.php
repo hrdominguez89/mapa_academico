@@ -25,6 +25,6 @@ class DashboardController extends AbstractController
         $data['files_css'] = [
             'sidebars.css?v=' . rand()
         ];
-        return $this->render('secure/dashboard/main.index.html.twig', $data);
+        return $this->render('Secure/dashboard/main.index.html.twig', $data);
     }
 }

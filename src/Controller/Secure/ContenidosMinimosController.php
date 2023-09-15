@@ -43,7 +43,7 @@ class ContenidosMinimosController extends AbstractController
         }
 
         $data['form'] = $form;
-        return $this->renderForm('secure/contenidos_minimos/form.contenidos.minimos.html.twig', $data);
+        return $this->renderForm('Secure/contenidos_minimos/form.contenidos.minimos.html.twig', $data);
     }
 
     /**
@@ -74,6 +74,6 @@ class ContenidosMinimosController extends AbstractController
         }
 
         $data['form'] = $form;
-        return $this->renderForm('secure/contenidos_minimos/form.contenidos.minimos.html.twig', $data);
+        return $this->renderForm('Secure/contenidos_minimos/form.contenidos.minimos.html.twig', $data);
     }
 }

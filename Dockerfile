@@ -36,18 +36,12 @@ COPY ./ /var/www/html
 # Establecer permisos
 RUN chown -R www-data:www-data /var/www/html
 
-# Configurar variables de entorno de Symfony
-ENV APP_ENV=dev
-ENV APP_DEBUG=1
-ENV APP_SECRET=df56d689878bd6a2a408421655881d5b
-
-# Instalar dependencias de Composer
-
 # Descarga e instala Composer 2
 # Latest release
 COPY --from=composer/composer:latest-bin /composer /usr/bin/composer
 
 RUN cd /var/www/html && composer install
+RUN php /var/www/html/bin/console cache:clear
 
 
 # Comando para iniciar Apache en primer plano
